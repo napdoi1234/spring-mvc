@@ -1,0 +1,41 @@
+package com.nguyencongvan.entity;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="category")
+public class CategoryEntity extends AbstractEntity{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "name")
+	private String name;
+	
+	@OneToMany(mappedBy = "category")
+	private List<NewsEntity> news;
+	
+	public List<NewsEntity> getNews() {
+		return news;
+	}
+
+	public void setNews(List<NewsEntity> news) {
+		this.news = news;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}
